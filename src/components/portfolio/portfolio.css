@@ -1,0 +1,111 @@
+.portfolio__container {
+  width: 58%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.portfolio__item {
+  background: var(--color-bg-variant);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid gray;
+  transition: var(--transition);
+}
+
+.portfolio__item:hover {
+  border-color: var(--color-primary-variant);
+  background: transparent;
+}
+
+.portfolio__item-image {
+  object-fit: cover;
+  height: 100%;
+  height: 200px;
+  border-radius: .4rem;
+}
+
+.portfolio__item h3 {
+  margin: 0.8rem 0 2rem;
+  font-size: 1rem !important;
+}
+
+.portfolio__item-cta {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio__item-btn {
+  padding: 0.5rem 0.5rem !important;
+}
+
+
+
+.modal-content {
+  color: #495057 !important;
+}
+
+
+
+
+/************/
+/* CAROUSEL */
+/************/
+.carousel{
+  background-color: black;
+}
+
+/* Slides */
+.carousel-item img{
+  width: 500px;
+  height: 400px;
+  object-fit: contain;
+}
+
+
+
+/* Tumbnails */
+.carousel-thumbs {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-thumbs img {
+  width: 75px !important;
+  height: 75px !important;
+  border: 1px solid grey !important;
+  margin: 0px !important;
+  object-fit: cover;
+
+  margin:auto;
+}
+
+.carousel-thumbs img.active {
+  border: 5px solid grey !important;
+}
+
+/* White margin on thumbnails if user hovers over them */
+.carousel-thumbs img:hover {
+  border: 5px solid black !important;
+}
+
+
+
+
+/* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
+@media screen and (max-width: 1024px) {
+  .portfolio__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+
+/* ========== MEDIA QUERIES (SMALL DEVICES) ========== */
+@media screen and (max-width: 600px) {
+  .portfolio__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
