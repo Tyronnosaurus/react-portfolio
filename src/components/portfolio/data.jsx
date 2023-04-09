@@ -181,6 +181,15 @@ export const data = [
     },
 
     {
+        title: "React Tinder clone",
+        images: ["/pf/TinderClone/1.png", "/pf/TinderClone/2.png", "/pf/TinderClone/3.png", "/pf/TinderClone/4.png"],
+        tags: ['Hobby', 'WebDev', 'React', 'HTML', 'CSS', 'Javascript'],
+        description:`<p>A simple Tinder clone where users can register, create a profile, and match and chat with each other. Data is stored on a MongoDB database through an API.</p>
+                     <p>Based on <a href="https://www.youtube.com/watch?v=Q70IMS-Qnjk">this tutorial</a>.</p>`,
+        github_link: "https://github.com/Tyronnosaurus/tinder-clone"
+    },
+
+    {
         title: "Comic resizer with size anomaly detection",
         images: ["/pf/ComicResizer/0.png"],
         tags: ['Hobby', 'Python'],
