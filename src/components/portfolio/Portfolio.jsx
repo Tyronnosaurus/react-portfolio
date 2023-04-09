@@ -66,8 +66,8 @@ const Portfolio = () => {
             <div dangerouslySetInnerHTML={{__html: modalData.description}} />
 
             <div className="portfolio__item-cta">
-              {modalData.github_link && <a href={modalData.github_link} className="btn portfolio__item-btn" target="_blank"> Github </a>}
-              {modalData.live_link   && <a href={modalData.live_link}   className="btn portfolio__item-btn" target="_blank"> Live </a>}
+              {modalData.github_link && <a href={modalData.github_link} className="btn portfolio__item-btn" target="_blank" rel="noreferrer"> Github </a>}
+              {modalData.live_link   && <a href={modalData.live_link}   className="btn portfolio__item-btn" target="_blank" rel="noreferrer"> Live </a>}
             </div>
 
             <div class="tags">{"Tags: " + modalData.tags.join(', ')}</div>

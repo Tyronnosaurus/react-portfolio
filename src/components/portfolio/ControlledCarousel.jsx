@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -34,7 +34,8 @@ const ControlledCarousel = ({images}) => {
               <img src={image}
                    key={i}
                    onClick={()=>setIndex(i)}
-                   className={i===index ? "active" : ""}/>
+                   className={i===index ? "active" : ""}
+                   alt={"thumbnail "+i}/>
           )}
 
       </div>
