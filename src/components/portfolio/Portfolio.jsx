@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ControlledCarousel from './ControlledCarousel'
 import { useState } from "react";
+import FilterButtons from "./FilterButtons";
 
 import { data } from "./data.jsx"
 
@@ -13,6 +14,7 @@ const Portfolio = () => {
 
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [currentFilter, setCurrentFilter] = useState("")
 
   const handleClose = () => setShow(false);
 
@@ -22,6 +24,9 @@ const Portfolio = () => {
   }
 
 
+  const filteredData = (currentFilter==="") ? data : data.filter((item) => item.tags.includes(currentFilter))
+
+
   return (
     <>
       <section id="portfolio">
@@ -29,11 +34,11 @@ const Portfolio = () => {
         <h5>My Recent Work</h5>
         <h2>Portfolio</h2>
 
+        <FilterButtons applyFilter={setCurrentFilter}/>
+
         <div className="container portfolio__container">
 
-          {data.map(({images, title, github_link, live_link, tags, description}) => {
-
-            return (
+          {filteredData.map(({images, title, github_link, live_link, tags, description}) => 
 
               <article className="portfolio__item" key={title} onClick={() => handleShow({images, title, github_link, live_link, tags, description})}>
 
@@ -41,15 +46,9 @@ const Portfolio = () => {
 
                 <h3>{title}</h3>
 
-                {/* <div className="portfolio__item-cta">
-                  {github_link && <a href={github_link} className="btn portfolio__item-btn" target="_blank"> Github </a>}
-                  {live_link   && <a href={live_link}   className="btn portfolio__item-btn" target="_blank"> Live </a>}
-                </div> */}
-
               </article>
-
-            );
-          })}
+              
+          )}
         </div>
 
       </section>

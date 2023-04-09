@@ -105,6 +105,55 @@
 
 
 
+
+
+
+/* PORTFOLIO BUTTONS */
+.filter-button-wrapper {
+  display:flex;
+  flex-wrap:wrap; /* Items not fitting in a row get wrapped to the next row */
+
+  align-items: center;      /* Center items */
+  justify-content: center;
+
+  padding-bottom: 2rem;
+}
+
+.filter-button-wrapper .btn {
+  /* background-color: white; */
+  margin: 3px;
+  padding: 3px 4px;
+}
+
+/* Add a grey background color on mouse-over */
+.filter-button-wrapper .btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.filter-button-wrapper .btn.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Prevent blue outline added by Bootstrap by default*/
+.filter-button-wrapper .btn:focus, .btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.filter-button-wrapper .separator{
+  height: 25px;
+  border: 1px solid #777;
+  margin: 8px;
+}
+
+
+
+
+
+
+
 /* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
 @media screen and (max-width: 1024px) {
   .portfolio__container {
