@@ -62,7 +62,15 @@ const Portfolio = () => {
 
           <Modal.Body>
             <ControlledCarousel images={modalData.images}/>
+            
             <div dangerouslySetInnerHTML={{__html: modalData.description}} />
+
+            <div className="portfolio__item-cta">
+              {modalData.github_link && <a href={modalData.github_link} className="btn portfolio__item-btn" target="_blank"> Github </a>}
+              {modalData.live_link   && <a href={modalData.live_link}   className="btn portfolio__item-btn" target="_blank"> Live </a>}
+            </div>
+
+            <div class="tags">{"Tags: " + modalData.tags.join(', ')}</div>
           </Modal.Body>
 
           <Modal.Footer>
