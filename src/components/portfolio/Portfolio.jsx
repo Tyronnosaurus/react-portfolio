@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import ControlledCarousel from './ControlledCarousel'
 import { useState } from "react";
 import FilterButtons from "./FilterButtons";
+import { motion } from "framer-motion";
 
 import { data } from "./data.jsx"
 
@@ -38,16 +39,23 @@ const Portfolio = () => {
 
         <div className="container portfolio__container">
 
-          {filteredData.map(({images, title, github_link, live_link, tags, description}) => 
+          {filteredData.map(({images, title, github_link, live_link, tags, description}) =>
 
-              <article className="portfolio__item" key={title} onClick={() => handleShow({images, title, github_link, live_link, tags, description})}>
+              <motion.div className="image-card"
+                          key={title} layout
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{duration: 0.5 }}>
+                <article className="portfolio__item" onClick={() => handleShow({images, title, github_link, live_link, tags, description})}>
 
-                <img className="portfolio__item-image" src={images[0]} alt={title} />
+                  <img className="portfolio__item-image" src={images[0]} alt={title} />
 
-                <h3>{title}</h3>
+                  <h3>{title}</h3>
 
-              </article>
-              
+                </article>
+              </motion.div>
+
           )}
         </div>
 
