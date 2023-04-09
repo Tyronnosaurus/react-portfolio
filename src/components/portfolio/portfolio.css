@@ -14,13 +14,13 @@
   cursor: pointer;
 }
 
-.portfolio__item:hover {
-  border-color: var(--color-primary-variant);
-  background: transparent;
+.portfolio__item:hover { 
+  background: var(--color-primary-variant);
 }
 
 .portfolio__item-image {
-  object-fit: cover;
+  border: 1px solid gray;
+  object-fit: contain;
   height: 100%;
   height: 200px;
   border-radius: .4rem;
