@@ -8,6 +8,11 @@ import { motion } from "framer-motion";
 import { data } from "./data.jsx"
 
 
+data.forEach(function (value, i) {
+  data[i].id = i
+  console.log(data[i].id = i);
+});
+
 
 const Portfolio = () => {
 
@@ -37,21 +42,20 @@ const Portfolio = () => {
 
         <div className="container portfolio__container">
 
-          {filteredData.map(({images, title, github_link, live_link, tags, description}, i) =>
+          {filteredData.map(({images, title, github_link, live_link, tags, description, id}, i) =>
 
-              <motion.div className="image-card"
-                          key={i} layout
+              <motion.div className="image-card portfolio__item"
+                          key={id} layout
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          transition={{duration: 0.5 }}>
-                <article className="portfolio__item" onClick={() => handleShow({images, title, github_link, live_link, tags, description})}>
+                          transition={{duration: 0.5 }}
+                          onClick={() => handleShow({images, title, github_link, live_link, tags, description})}>
 
-                  <img className="portfolio__item-image" src={images[0]} alt={title} />
+                <img className="portfolio__item-image" src={images[0]} alt={title} />
 
-                  <h3>{title}</h3>
+                <h3>{title}</h3>
 
-                </article>
               </motion.div>
 
           )}

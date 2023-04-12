@@ -1,11 +1,12 @@
 .portfolio__container {
   width: 60%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
 .portfolio__item {
+  height: 300px;
   background: var(--color-bg-variant);
   padding: 0.5rem;
   border-radius: 1rem;
