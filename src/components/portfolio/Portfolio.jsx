@@ -1,8 +1,6 @@
 import React from "react";
 import "./portfolio.css";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import ControlledCarousel from './ControlledCarousel'
+import ProjectModal from './ProjectModal';
 import { useState } from "react";
 import FilterButtons from "./FilterButtons";
 import { motion } from "framer-motion";
@@ -39,10 +37,10 @@ const Portfolio = () => {
 
         <div className="container portfolio__container">
 
-          {filteredData.map(({images, title, github_link, live_link, tags, description}) =>
+          {filteredData.map(({images, title, github_link, live_link, tags, description}, i) =>
 
               <motion.div className="image-card"
-                          key={title} layout
+                          key={i} layout
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
@@ -61,31 +59,9 @@ const Portfolio = () => {
 
       </section>
 
+
       {modalData &&
-        <Modal show={show} onHide={handleClose} size="lg" centered>
-          <Modal.Header closeButton>
-            <Modal.Title>{modalData.title}</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <ControlledCarousel images={modalData.images}/>
-            
-            <div dangerouslySetInnerHTML={{__html: modalData.description}} />
-
-            <div className="portfolio__item-cta">
-              {modalData.github_link && <a href={modalData.github_link} className="btn portfolio__item-btn" target="_blank" rel="noreferrer"> Github </a>}
-              {modalData.live_link   && <a href={modalData.live_link}   className="btn portfolio__item-btn" target="_blank" rel="noreferrer"> Live </a>}
-            </div>
-
-            <div class="tags">{"Tags: " + modalData.tags.join(', ')}</div>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <ProjectModal modalData={modalData} show={show} handleClose={handleClose} />
       }
       
     
